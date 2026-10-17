@@ -8,104 +8,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
 
 *{box-sizing:border-box}
-body{margin:0;background:#050714;color:#f3eee3;font-family:'Montserrat',sans-serif;text-align:center;overflow:hidden}
+body{margin:0;background:#03050f;color:#f3eee3;font-family:'Montserrat',sans-serif;text-align:center;overflow:hidden}
 
-/* LÜKS HEDİYE PAKETİ OVERLAY */
+/* LÜKS SİNEMATİK GİRİŞ EKRANI */
 #gift-overlay{
-  position:fixed;inset:0;background:radial-gradient(circle at center, #121836 0%, #050714 85%);
+  position:fixed;inset:0;background:radial-gradient(circle at center, #0d122d 0%, #03050f 90%);
   z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  transition:opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gift-card-box{
-  background:linear-gradient(135deg, #e63946, #b7094c);
-  width: 140px; height: 140px; border-radius: 24px; position: relative;
-  cursor: pointer; box-shadow: 0 20px 50px rgba(183, 9, 76, 0.4);
-  animation: luxuryPulse 2.5s infinite ease-in-out;
+  background:linear-gradient(135deg, #e63946, #9b0638);
+  width: 150px; height: 150px; border-radius: 28px; position: relative;
+  cursor: pointer; box-shadow: 0 25px 60px rgba(155, 6, 56, 0.5);
+  animation: cinematicPulse 2.5s infinite ease-in-out;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.25);
 }
-.ribbon-vertical { position: absolute; width: 28px; height: 100%; background: #d4af37; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
-.ribbon-horizontal { position: absolute; width: 100%; height: 28px; background: #d4af37; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
-.bow { position: absolute; top: -38px; font-size: 52px; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.4)); }
-@keyframes luxuryPulse { 0%, 100% { transform: scale(1); box-shadow: 0 20px 50px rgba(183, 9, 76, 0.4); } 50% { transform: scale(1.05); box-shadow: 0 25px 60px rgba(212, 175, 55, 0.5); } }
+.ribbon-vertical { position: absolute; width: 32px; height: 100%; background: #d4af37; box-shadow: inset 0 0 12px rgba(0,0,0,0.4); }
+.ribbon-horizontal { position: absolute; width: 100%; height: 32px; background: #d4af37; box-shadow: inset 0 0 12px rgba(0,0,0,0.4); }
+.bow { position: absolute; top: -42px; font-size: 58px; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.5)); }
+@keyframes cinematicPulse { 0%, 100% { transform: scale(1); box-shadow: 0 25px 60px rgba(155, 6, 56, 0.5); } 50% { transform: scale(1.06); box-shadow: 0 30px 70px rgba(212, 175, 55, 0.6); } }
 
-/* PROFESYONEL SLAYT SİSTEMİ */
+/* PROFESYONEL SİNEMATİK SLAYT SİSTEMİ */
 .slide{
   position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;
-  padding:30px;opacity:0;transition:opacity 0.8s ease, transform 0.8s ease;overflow-y:auto;
-  background:radial-gradient(circle at center, #111736 0%, #050714 90%);
+  padding:30px;opacity:0;transition:opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y:auto;background:radial-gradient(circle at center, #0b1029 0%, #03050f 95%);
+  transform: translateY(20px);
 }
-.slide.active{display:flex;opacity:1;transform:scale(1)}
+.slide.active{display:flex;opacity:1;transform:translateY(0)}
 
-.eyebrow{color:#d4af37;letter-spacing:6px;font:11px 'Montserrat',sans-serif;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.eyebrow{color:#d4af37;letter-spacing:8px;font:11px 'Montserrat',sans-serif;text-transform:uppercase;margin-bottom:14px;font-weight:500}
 h1, h2{font-family:'Cormorant Garamond',serif;font-weight:400;margin:10px 0}
-h1{font-size:clamp(38px, 6vw, 68px);line-height:1.15;letter-spacing:1px}
-h2{font-size:clamp(28px, 4vw, 42px);letter-spacing:1px}
+h1{font-size:clamp(40px, 7vw, 72px);line-height:1.15;letter-spacing:1px}
+h2{font-size:clamp(30px, 4.5vw, 46px);letter-spacing:1px}
 em{color:#e63946;font-style:italic}
-p{line-height:1.7;max-width:680px;margin:10px auto;font-weight:300;font-size:15px}
+p{line-height:1.8;max-width:700px;margin:12px auto;font-weight:300;font-size:15px}
 .muted{color:#a3a8c2;font-size:14px}
 
 button{
-  padding:14px 32px;border:1px solid #d4af37;border-radius:40px;background:transparent;color:#d4af37;
-  cursor:pointer;font-weight:500;margin:15px;font-size:13px;letter-spacing:2px;text-transform:uppercase;
-  transition:all 0.4s ease;box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  padding:15px 36px;border:1px solid #d4af37;border-radius:40px;background:transparent;color:#d4af37;
+  cursor:pointer;font-weight:500;margin:18px;font-size:13px;letter-spacing:3px;text-transform:uppercase;
+  transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);box-shadow:0 4px 20px rgba(0,0,0,0.4);
 }
-button:hover{background:#d4af37;color:#050714;transform:translateY(-2px);box-shadow:0 6px 25px rgba(212,175,55,0.4)}
+button:hover{background:#d4af37;color:#03050f;transform:translateY(-3px);box-shadow:0 8px 30px rgba(212,175,55,0.5)}
 
-/* CAM EFEKTİ FOTOĞRAF KARTLARI */
+/* SİNEMATİK FOTOĞRAF ÇERÇEVESİ (KIRPILMA YOK) */
 .photo-slide-container{
-  max-width:420px;width:100%;margin:15px auto;border-radius:18px;overflow:hidden;
-  border:1px solid rgba(212,175,55,0.3);background:rgba(255,255,255,0.03);
-  box-shadow:0 15px 35px rgba(0,0,0,0.5);backdrop-filter:blur(10px);transition:transform 0.5s ease;
+  max-width:460px;width:100%;margin:15px auto;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,175,55,0.35);background:rgba(255,255,255,0.02);
+  box-shadow:0 20px 45px rgba(0,0,0,0.6);backdrop-filter:blur(12px);transition:transform 0.6s ease;
 }
 .photo-slide-container:hover{transform:translateY(-5px)}
-.photo-slide-container img{width:100%;height:auto;max-height:320px;object-fit:cover;display:block;margin:auto}
+.photo-slide-container img{width:100%;height:auto;max-height:350px;object-fit:contain;display:block;margin:auto;background:#000}
 
-/* EKRANI KAPLAYAN BÜYÜK VİDEO */
+/* EKRANI KAPLAYAN GENİŞ SİNEMATİK VİDEO */
 .video-container{
-  margin:15px auto;max-width:750px;width:100%;border-radius:20px;overflow:hidden;
-  border:1px solid rgba(212,175,55,0.4);background:#000;box-shadow:0 20px 50px rgba(0,0,0,0.7);
+  margin:15px auto;max-width:800px;width:100%;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(212,175,55,0.45);background:#000;box-shadow:0 25px 60px rgba(0,0,0,0.8);
 }
-video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;margin:auto}
+video{width:100%;height:auto;max-height:450px;object-fit:cover;display:block;margin:auto}
 
-/* ZARF VE MEKTUP DENEYİMİ */
+/* LÜKS ZARF VE MEKTUP DENEYİMİ */
 .envelope-box {
-  background: linear-gradient(135deg, #1b2247, #111736); border: 2px solid #d4af37;
-  padding: 30px; border-radius: 16px; cursor: pointer; max-width: 500px; width: 100%;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5); transition: transform 0.3s ease; text-align: center;
+  background: linear-gradient(135deg, #151d3b, #0d122d); border: 2px solid #d4af37;
+  padding: 32px; border-radius: 18px; cursor: pointer; max-width: 520px; width: 100%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6); transition: transform 0.35s ease; text-align: center;
+  margin: 10px auto;
 }
-.envelope-box:hover { transform: scale(1.02); }
+.envelope-box:hover { transform: scale(1.03); }
 
 .letter-modal {
-  background: #fdfaf2; color: #1c1815; padding: 0 35px; border-radius: 8px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.7); line-height: 1.8; white-space: pre-line;
-  max-height: 0; overflow: hidden; transition: max-height 1.2s cubic-bezier(0.25, 1, 0.5, 1), padding 1.2s ease;
-  border: 3px solid #d4af37; font-family: 'Cormorant Garamond', serif; font-size: 19px; text-align: left; max-width: 650px; width: 100%; margin: 15px auto;
+  background: #fdfaf2; color: #1c1815; padding: 0 40px; border-radius: 10px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.8); line-height: 1.9; white-space: pre-line;
+  max-height: 0; overflow: hidden; transition: max-height 1.3s cubic-bezier(0.25, 1, 0.5, 1), padding 1.3s ease;
+  border: 3px solid #d4af37; font-family: 'Cormorant Garamond', serif; font-size: 20px; text-align: left; max-width: 680px; width: 100%; margin: 15px auto;
 }
-.letter-modal.open { max-height: 700px; padding: 30px; overflow-y: auto; }
-.letter-modal h3 { margin-top: 0; color: #8c1d40; font-family: 'Cormorant Garamond', serif; font-size: 28px; }
+.letter-modal.open { max-height: 750px; padding: 35px; overflow-y: auto; }
+.letter-modal h3 { margin-top: 0; color: #8c1d40; font-family: 'Cormorant Garamond', serif; font-size: 30px; }
 
-.game{padding:20px;border:1px solid rgba(212,175,55,0.2);border-radius:18px;max-width:550px;margin:15px auto;background:rgba(255,255,255,0.02);backdrop-filter:blur(10px)}
-.answer{background:transparent;color:#f3eee3;border:1px solid rgba(212,175,55,0.4);display:block;width:100%;max-width:380px;margin:8px auto;border-radius:30px;padding:12px;cursor:pointer;transition:all 0.3s}
-.answer:hover{background:rgba(212,175,55,0.15);border-color:#d4af37}
+.game{padding:22px;border:1px solid rgba(212,175,55,0.25);border-radius:20px;max-width:580px;margin:15px auto;background:rgba(255,255,255,0.02);backdrop-filter:blur(12px)}
+.answer{background:transparent;color:#f3eee3;border:1px solid rgba(212,175,55,0.45);display:block;width:100%;max-width:400px;margin:10px auto;border-radius:30px;padding:13px;cursor:pointer;transition:all 0.3s}
+.answer:hover{background:rgba(212,175,55,0.2);border-color:#d4af37}
 #feedback{color:#e63946;min-height:25px;font-weight:500;font-size:14px}
 
-/* EKRANI KAPLAYAN BÜYÜK PASTA VE GERİ SAYIM */
-#cake-container { font-size: 110px; transition: transform 0.3s; margin: 10px 0; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
-#countdown-display { font-size: 75px; font-family:'Cormorant Garamond', serif; color: #e63946; margin: 10px 0; min-height: 85px; text-shadow: 0 0 25px rgba(230,57,70,0.5); }
+/* EKRANI KAPLAYAN GÖRKEMLİ PASTA VE GERİ SAYIM */
+#cake-container { font-size: 120px; transition: transform 0.3s; margin: 10px 0; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6)); }
+#countdown-display { font-size: 80px; font-family:'Cormorant Garamond', serif; color: #e63946; margin: 10px 0; min-height: 90px; text-shadow: 0 0 30px rgba(230,57,70,0.6); }
 #stars{position:fixed;inset:0;pointer-events:none;z-index:-1}
 </style>
 </head>
 <body>
 
 <div id="gift-overlay">
-  <div style="font-size:16px;color:#d4af37;letter-spacing:5px;margin-bottom:25px;font-weight:500;text-transform:uppercase;">A Special Surprise For You</div>
+  <div style="font-size:16px;color:#d4af37;letter-spacing:6px;margin-bottom:25px;font-weight:500;text-transform:uppercase;">A Cinematic Surprise For You</div>
   <div class="gift-card-box" onclick="openGift()">
     <div class="ribbon-vertical"></div>
     <div class="ribbon-horizontal"></div>
     <div class="bow">🎁</div>
   </div>
-  <p class="muted" style="margin-top:35px;font-size:13px;letter-spacing:1px;color:#e63946;">TAP THE GIFT BOX TO UNWRAP ✨</p>
+  <p class="muted" style="margin-top:35px;font-size:13px;letter-spacing:1.5px;color:#e63946;">TAP THE GIFT BOX TO UNWRAP ✨</p>
 </div>
 
 <audio id="bg-music" loop preload="auto">
@@ -116,7 +118,7 @@ video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;mar
 
 <!-- SLAYT 1 -->
 <div class="slide active" id="slide-0">
-  <div style="font-size:36px;color:#d4af37;margin-bottom:10px;">✦</div>
+  <div style="font-size:38px;color:#d4af37;margin-bottom:10px;">✦</div>
   <div class="eyebrow">A Birthday Journey Made With Love</div>
   <h1>For my favourite<br><em>person in the world.</em></h1>
   <p class="muted">I built a private universe on the internet.<br>And this universe belongs strictly to us.</p>
@@ -156,7 +158,7 @@ video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;mar
   <button onclick="nextSlide()">Watch Video</button>
 </div>
 
-<!-- SLAYT 5 (BÜYÜK EKRAN VİDEO) -->
+<!-- SLAYT 5 (GENİŞ EKRAN VİDEO) -->
 <div class="slide" id="slide-4">
   <div class="eyebrow">Cinematic Moment</div>
   <h2>A Little Video For You</h2>
@@ -177,8 +179,8 @@ video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;mar
   <p class="muted" style="margin-bottom:15px;">Tap the sealed envelope to unveil my words ♡</p>
   
   <div class="envelope-box" onclick="openLetterModal()">
-    <div style="font-size: 24px; color: #d4af37; margin-bottom: 5px;">✉️ 📜</div>
-    <div style="font-weight: 500; letter-spacing: 1px; font-size:15px;">Tap to open your sealed letter</div>
+    <div style="font-size: 26px; color: #d4af37; margin-bottom: 6px;">✉️ 📜</div>
+    <div style="font-weight: 500; letter-spacing: 1.5px; font-size:15px;">Tap to open your sealed letter</div>
   </div>
 
   <div class="letter-modal" id="letterModalBox">
@@ -217,7 +219,7 @@ video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;mar
   </div>
 </div>
 
-<!-- SLAYT 8 (BÜYÜK EKRAN PASTA VE GERİ SAYIM) -->
+<!-- SLAYT 8 (GÖRKEMLİ PASTA VE GERİ SAYIM) -->
 <div class="slide" id="slide-7">
   <div class="eyebrow">Grand Finale</div>
   <h2>Make a Birthday Wish</h2>
@@ -229,7 +231,7 @@ video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;mar
     <h2>Happy Birthday, <em>my love.</em></h2>
     <p class="muted">Here's to a future filled with countless birthdays together.</p>
     <h2>♡ I LOVE YOU ♡</h2>
-    <div style="font-size:32px">🎉 💕 ✨ 🎈</div>
+    <div style="font-size:34px">🎉 💕 ✨ 🎈</div>
   </div>
 </div>
 
@@ -251,8 +253,8 @@ function openGift(){
 
   let overlay = document.getElementById('gift-overlay');
   overlay.style.opacity = '0';
-  overlay.style.transform = 'scale(1.08)';
-  setTimeout(() => overlay.remove(), 900);
+  overlay.style.transform = 'scale(1.1)';
+  setTimeout(() => overlay.remove(), 1000);
 }
 
 function nextSlide(){
@@ -267,10 +269,10 @@ function openLetterModal(){
   modal.classList.toggle('open');
 }
 
-for(let i=0;i<60;i++){
+for(let i=0;i<70;i++){
   let s=document.createElement('span');
   s.textContent='♥';
-  s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;color:#d4af37;opacity:${Math.random()*0.35};font-size:${8+Math.random()*6}px`;
+  s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;color:#d4af37;opacity:${Math.random()*0.4};font-size:${8+Math.random()*8}px`;
   document.getElementById('stars').appendChild(s);
 }
 
@@ -321,13 +323,13 @@ function startCountdown(){
 }
 
 function triggerConfetti(){
-  for(let i=0;i<80;i++){
+  for(let i=0;i<90;i++){
     let h=document.createElement('span');
     h.textContent=['❤️','✨','🎈','🎉','💖'][Math.floor(Math.random()*5)];
-    h.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;font-size:${18+Math.random()*24}px;z-index:5;pointer-events:none;transition:transform 4s linear,opacity 4s linear`;
+    h.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;font-size:${18+Math.random()*26}px;z-index:5;pointer-events:none;transition:transform 4s linear,opacity 4s linear`;
     document.body.appendChild(h);
     setTimeout(()=>{
-      h.style.transform=`translateY(-110vh) translateX(${(Math.random()-0.5)*250}px) rotate(${Math.random()*360}deg)`;
+      h.style.transform=`translateY(-110vh) translateX(${(Math.random()-0.5)*300}px) rotate(${Math.random()*360}deg)`;
       h.style.opacity=0;
     },30);
     setTimeout(()=>h.remove(),4200);
