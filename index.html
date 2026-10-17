@@ -5,215 +5,231 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Little World Just for You ♡</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#0b1025;color:#fff4e9;font-family:Georgia,serif;text-align:center;overflow:hidden}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
 
-/* HEDİYE PAKETİ OVERLAY */
+*{box-sizing:border-box}
+body{margin:0;background:#050714;color:#f3eee3;font-family:'Montserrat',sans-serif;text-align:center;overflow:hidden}
+
+/* LÜKS HEDİYE PAKETİ OVERLAY */
 #gift-overlay{
-  position:fixed;inset:0;background:radial-gradient(circle,#1a1a3a,#0b1025 80%);
+  position:fixed;inset:0;background:radial-gradient(circle at center, #121836 0%, #050714 85%);
   z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  transition:opacity 0.8s ease, transform 0.8s ease;
+  transition:opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gift-card-box{
-  background:linear-gradient(135deg, #ff4d6d, #d90429);
-  width: 150px; height: 150px; border-radius: 20px; position: relative;
-  cursor: pointer; box-shadow: 0 15px 35px rgba(255, 77, 109, 0.4);
-  animation: pulseBox 2s infinite ease-in-out;
+  background:linear-gradient(135deg, #e63946, #b7094c);
+  width: 140px; height: 140px; border-radius: 24px; position: relative;
+  cursor: pointer; box-shadow: 0 20px 50px rgba(183, 9, 76, 0.4);
+  animation: luxuryPulse 2.5s infinite ease-in-out;
   display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.2);
 }
-.ribbon-vertical { position: absolute; width: 30px; height: 100%; background: #0077b6; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
-.ribbon-horizontal { position: absolute; width: 100%; height: 30px; background: #0077b6; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
-.bow { position: absolute; top: -35px; font-size: 50px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
-@keyframes pulseBox { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.ribbon-vertical { position: absolute; width: 28px; height: 100%; background: #d4af37; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
+.ribbon-horizontal { position: absolute; width: 100%; height: 28px; background: #d4af37; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
+.bow { position: absolute; top: -38px; font-size: 52px; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.4)); }
+@keyframes luxuryPulse { 0%, 100% { transform: scale(1); box-shadow: 0 20px 50px rgba(183, 9, 76, 0.4); } 50% { transform: scale(1.05); box-shadow: 0 25px 60px rgba(212, 175, 55, 0.5); } }
 
-/* SLAYT SİSTEMİ */
+/* PROFESYONEL SLAYT SİSTEMİ */
 .slide{
   position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;
-  padding:20px;opacity:0;transition:opacity 0.6s ease;overflow-y:auto;background:radial-gradient(ellipse,#30365e,#0b1025 70%);
+  padding:30px;opacity:0;transition:opacity 0.8s ease, transform 0.8s ease;overflow-y:auto;
+  background:radial-gradient(circle at center, #111736 0%, #050714 90%);
 }
-.slide.active{display:flex;opacity:1}
+.slide.active{display:flex;opacity:1;transform:scale(1)}
 
-.eyebrow{color:#e9cc94;letter-spacing:4px;font:11px Arial,sans-serif;margin-bottom:8px}
-h1{font-size:clamp(32px,6vw,60px);font-weight:normal;line-height:1.15;margin:8px 0}
-h2{font-size:clamp(24px,4vw,36px);font-weight:normal;margin:8px 0}
-em{color:#ff4d6d}
-p{line-height:1.6;max-width:700px;margin:8px auto;font-size:14px}
-.muted{color:#c6c6d8;font:13px/1.6 Arial,sans-serif}
+.eyebrow{color:#d4af37;letter-spacing:6px;font:11px 'Montserrat',sans-serif;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+h1, h2{font-family:'Cormorant Garamond',serif;font-weight:400;margin:10px 0}
+h1{font-size:clamp(38px, 6vw, 68px);line-height:1.15;letter-spacing:1px}
+h2{font-size:clamp(28px, 4vw, 42px);letter-spacing:1px}
+em{color:#e63946;font-style:italic}
+p{line-height:1.7;max-width:680px;margin:10px auto;font-weight:300;font-size:15px}
+.muted{color:#a3a8c2;font-size:14px}
 
-button{padding:12px 24px;border:1px solid #e9cc94;border-radius:30px;background:#e9cc94;color:#17152b;cursor:pointer;font-weight:bold;margin:10px;font-size:14px}
-button:hover{transform:scale(1.04)}
-
-/* FOTOĞRAF VE VİDEO (KIRPILMADAN TAM GÖRÜNÜM) */
-.photo-slide-container{max-width:420px;width:100%;margin:10px auto;border-radius:14px;overflow:hidden;border:2px solid #e9cc94;background:#343755;box-shadow:0 4px 20px rgba(233,204,148,0.2)}
-.photo-slide-container img{width:100%;height:auto;max-height:300px;object-fit:contain;display:block;margin:auto;background:#000}
-
-.video-container{margin:10px auto;max-width:550px;width:100%;border-radius:14px;overflow:hidden;border:2px solid #e9cc94;background:#1a1a1a;box-shadow:0 4px 15px rgba(233,204,148,0.2)}
-video{width:100%;height:auto;max-height:280px;object-fit:contain;display:block;margin:auto}
-
-/* ANTİK RULO MEKTUP (EL YAZISI VE ÖZEL RENK) */
-.scroll-container { max-width: 600px; width: 100%; margin: 10px auto; text-align: left; }
-.scroll-seal {
-  background: linear-gradient(135deg, #d4af37, #aa771c); color: #fff; padding: 18px; border-radius: 12px;
-  cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.4); text-align: center; font-weight: bold; font-size: 16px;
-  border: 2px dashed #ffe699; transition: transform 0.3s;
+button{
+  padding:14px 32px;border:1px solid #d4af37;border-radius:40px;background:transparent;color:#d4af37;
+  cursor:pointer;font-weight:500;margin:15px;font-size:13px;letter-spacing:2px;text-transform:uppercase;
+  transition:all 0.4s ease;box-shadow:0 4px 20px rgba(0,0,0,0.3);
 }
-.scroll-seal:hover { transform: scale(1.02); }
+button:hover{background:#d4af37;color:#050714;transform:translateY(-2px);box-shadow:0 6px 25px rgba(212,175,55,0.4)}
 
-.scroll-paper {
-  background: #f4e8c1; color: #2e2218; padding: 0 30px; border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6); line-height: 1.8; white-space: pre-line;
+/* CAM EFEKTİ FOTOĞRAF KARTLARI */
+.photo-slide-container{
+  max-width:420px;width:100%;margin:15px auto;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(212,175,55,0.3);background:rgba(255,255,255,0.03);
+  box-shadow:0 15px 35px rgba(0,0,0,0.5);backdrop-filter:blur(10px);transition:transform 0.5s ease;
+}
+.photo-slide-container:hover{transform:translateY(-5px)}
+.photo-slide-container img{width:100%;height:auto;max-height:320px;object-fit:cover;display:block;margin:auto}
+
+/* EKRANI KAPLAYAN BÜYÜK VİDEO */
+.video-container{
+  margin:15px auto;max-width:750px;width:100%;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,175,55,0.4);background:#000;box-shadow:0 20px 50px rgba(0,0,0,0.7);
+}
+video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;margin:auto}
+
+/* ZARF VE MEKTUP DENEYİMİ */
+.envelope-box {
+  background: linear-gradient(135deg, #1b2247, #111736); border: 2px solid #d4af37;
+  padding: 30px; border-radius: 16px; cursor: pointer; max-width: 500px; width: 100%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5); transition: transform 0.3s ease; text-align: center;
+}
+.envelope-box:hover { transform: scale(1.02); }
+
+.letter-modal {
+  background: #fdfaf2; color: #1c1815; padding: 0 35px; border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7); line-height: 1.8; white-space: pre-line;
   max-height: 0; overflow: hidden; transition: max-height 1.2s cubic-bezier(0.25, 1, 0.5, 1), padding 1.2s ease;
-  border: 4px solid #d4af37; font-family: 'Brush Script MT', 'Lucida Handwriting', cursive; position: relative; font-size: 18px; font-weight: bold;
+  border: 3px solid #d4af37; font-family: 'Cormorant Garamond', serif; font-size: 19px; text-align: left; max-width: 650px; width: 100%; margin: 15px auto;
 }
-.scroll-paper.open { max-height: 750px; padding: 25px; overflow-y: auto; }
-.scroll-paper h3 { margin-top: 0; color: #5c4033; font-size: 26px; font-family: Georgia, serif; }
-.scroll-paper .normal-text { color: #2e2218; }
+.letter-modal.open { max-height: 700px; padding: 30px; overflow-y: auto; }
+.letter-modal h3 { margin-top: 0; color: #8c1d40; font-family: 'Cormorant Garamond', serif; font-size: 28px; }
 
-.game{padding:15px;border:1px solid #ffffff30;border-radius:16px;max-width:550px;margin:10px auto;background:#ffffff08}
-.answer{background:transparent;color:white;border-color:#e9cc94;display:block;width:100%;max-width:350px;margin:6px auto}
-#feedback{color:#ff4d6d;min-height:22px;font-weight:bold;font-size:14px}
+.game{padding:20px;border:1px solid rgba(212,175,55,0.2);border-radius:18px;max-width:550px;margin:15px auto;background:rgba(255,255,255,0.02);backdrop-filter:blur(10px)}
+.answer{background:transparent;color:#f3eee3;border:1px solid rgba(212,175,55,0.4);display:block;width:100%;max-width:380px;margin:8px auto;border-radius:30px;padding:12px;cursor:pointer;transition:all 0.3s}
+.answer:hover{background:rgba(212,175,55,0.15);border-color:#d4af37}
+#feedback{color:#e63946;min-height:25px;font-weight:500;font-size:14px}
 
-/* GERİ SAYIM VE MUM ANİMASYONU */
-#countdown-display { font-size: 60px; font-weight: bold; color: #ff4d6d; margin: 15px 0; min-height: 70px; text-shadow: 0 0 15px rgba(255,77,109,0.6); }
-#cake-container { font-size: 70px; transition: transform 0.3s; }
+/* EKRANI KAPLAYAN BÜYÜK PASTA VE GERİ SAYIM */
+#cake-container { font-size: 110px; transition: transform 0.3s; margin: 10px 0; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+#countdown-display { font-size: 75px; font-family:'Cormorant Garamond', serif; color: #e63946; margin: 10px 0; min-height: 85px; text-shadow: 0 0 25px rgba(230,57,70,0.5); }
 #stars{position:fixed;inset:0;pointer-events:none;z-index:-1}
 </style>
 </head>
 <body>
 
 <div id="gift-overlay">
-  <div style="font-size:18px;color:#e9cc94;letter-spacing:4px;margin-bottom:25px;font-weight:bold;">A SPECIAL SURPRISE FOR YOU ♡</div>
+  <div style="font-size:16px;color:#d4af37;letter-spacing:5px;margin-bottom:25px;font-weight:500;text-transform:uppercase;">A Special Surprise For You</div>
   <div class="gift-card-box" onclick="openGift()">
     <div class="ribbon-vertical"></div>
     <div class="ribbon-horizontal"></div>
     <div class="bow">🎁</div>
   </div>
-  <p class="muted" style="margin-top:30px;font-size:14px;color:#ff4d6d;">Tap the gift box to unwrap your surprise ✨</p>
+  <p class="muted" style="margin-top:35px;font-size:13px;letter-spacing:1px;color:#e63946;">TAP THE GIFT BOX TO UNWRAP ✨</p>
 </div>
 
-<!-- ARKAPLAN MÜZİĞİ (PHIL COLLINS) -->
 <audio id="bg-music" loop>
   <source src="https://cdnsongs.com/music/data/English/2021/Another_Day_In_Paradise_-_Phil_Collins/128/1.mp3" type="audio/mpeg">
 </audio>
 
 <div id="stars"></div>
 
-<!-- SLAYT 1: GİRİŞ -->
+<!-- SLAYT 1 -->
 <div class="slide active" id="slide-0">
-  <div style="font-size:38px">☾ ✦</div>
-  <div class="eyebrow">A BIRTHDAY SURPRISE MADE WITH LOVE</div>
+  <div style="font-size:36px;color:#d4af37;margin-bottom:10px;">✦</div>
+  <div class="eyebrow">A Birthday Journey Made With Love</div>
   <h1>For my favourite<br><em>person in the world.</em></h1>
-  <p class="muted">I made a little world on the internet.<br>And this little world belongs only to us.</p>
-  <button onclick="nextSlide()">OPEN YOUR SURPRISE ♡</button>
+  <p class="muted">I built a private universe on the internet.<br>And this universe belongs strictly to us.</p>
+  <button onclick="nextSlide()">Begin Journey</button>
 </div>
 
-<!-- SLAYT 2: FOTOĞRAF 1 -->
+<!-- SLAYT 2 -->
 <div class="slide" id="slide-1">
-  <div class="eyebrow">MEMORIES • 1 / 3</div>
-  <h2>The Beginning ✨</h2>
+  <div class="eyebrow">Chapter I • Memories</div>
+  <h2>The Beginning</h2>
   <div class="photo-slide-container">
     <img src="photo1.jpg" alt="Memory 1">
   </div>
-  <p class="muted">Somehow, you became one of my favourite parts of life.</p>
-  <button onclick="nextSlide()">NEXT →</button>
+  <p class="muted">Somehow, you became the most beautiful part of my life.</p>
+  <button onclick="nextSlide()">Continue</button>
 </div>
 
-<!-- SLAYT 3: FOTOĞRAF 2 -->
+<!-- SLAYT 3 -->
 <div class="slide" id="slide-2">
-  <div class="eyebrow">MEMORIES • 2 / 3</div>
-  <h2>Our Adventures 🌍</h2>
+  <div class="eyebrow">Chapter I • Memories</div>
+  <h2>Our Adventures</h2>
   <div class="photo-slide-container">
     <img src="photo2.jpg" alt="Memory 2">
   </div>
-  <p class="muted">Different places, beautiful memories, and a story that's ours.</p>
-  <button onclick="nextSlide()">NEXT →</button>
+  <p class="muted">Different places, timeless memories, and a story uniquely ours.</p>
+  <button onclick="nextSlide()">Continue</button>
 </div>
 
-<!-- SLAYT 4: FOTOĞRAF 3 -->
+<!-- SLAYT 4 -->
 <div class="slide" id="slide-3">
-  <div class="eyebrow">MEMORIES • 3 / 3</div>
-  <h2>Just Us ♡</h2>
+  <div class="eyebrow">Chapter I • Memories</div>
+  <h2>Just Us</h2>
   <div class="photo-slide-container">
     <img src="photo3.jpg" alt="Memory 3">
   </div>
-  <p class="muted">The laughter, the little moments, and all the things I miss.</p>
-  <button onclick="nextSlide()">WATCH VIDEO →</button>
+  <p class="muted">The quiet laughs, the warm glances, and all the things I miss.</p>
+  <button onclick="nextSlide()">Watch Video</button>
 </div>
 
-<!-- SLAYT 5: VİDEO (OTOMATİK OYNAR VE SESSİZ) -->
+<!-- SLAYT 5 (BÜYÜK EKRAN VİDEO) -->
 <div class="slide" id="slide-4">
-  <div class="eyebrow">A SPECIAL MOMENT</div>
+  <div class="eyebrow">Cinematic Moment</div>
   <h2>A Little Video For You</h2>
-  <p class="muted">Just watch and smile. 🎬</p>
+  <p class="muted">Press play and feel the moment.</p>
   <div class="video-container">
     <video autoplay muted loop playsinline>
       <source src="video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-  <button onclick="nextSlide()">READ MY LETTER →</button>
+  <button onclick="nextSlide()">Read Letter</button>
 </div>
 
-<!-- SLAYT 6: ANTİK RULO MEKTUP -->
+<!-- SLAYT 6 -->
 <div class="slide" id="slide-5">
-  <div class="eyebrow">CHAPTER TWO</div>
-  <h2>A Royal Scroll For You</h2>
-  <p class="muted" style="margin-bottom:8px;">Click the royal scroll below to unroll your letter ♡</p>
+  <div class="eyebrow">Chapter II • Heart to Heart</div>
+  <h2>A Royal Letter</h2>
+  <p class="muted" style="margin-bottom:15px;">Tap the sealed envelope to unveil my words ♡</p>
   
-  <div class="scroll-container">
-    <div class="scroll-seal" onclick="unrollLetter()">
-      📜 Tap here to unroll the royal decree & read your letter ✨
-    </div>
-    <div class="scroll-paper" id="paperScroll">
-      <h3>Happy birthday, aşk ❤️</h3>
-      These are just a few of my favourite moments and memories with you, because they remind me of the best days we’ve shared.
-
-      Nothing extraordinary, just us enjoying each other’s company, with nowhere else we needed to be and nothing else we needed to do.
-
-      I think that’s what makes these memories so special to me. It wasn’t about doing anything extraordinary, but about how happy and peaceful everything felt just because I was with you.
-
-      I wish I could be right there with you today, making more memories like these. Until then, I hope these little photos and videos bring you back to those beautiful days whenever you look at them.
-
-      My favourite place will always be wherever I get to share these little moments with you.
-
-      I hope this new year of your life brings you as much happiness, warmth, and love as you bring into mine every single day. I can't wait until we can celebrate all your birthdays side by side.
-
-      <br><br><span style="color: #5c4033; font-weight: bold;">I love you babe ❤️</span>
-    </div>
+  <div class="envelope-box" onclick="openLetterModal()">
+    <div style="font-size: 24px; color: #d4af37; margin-bottom: 5px;">✉️ 📜</div>
+    <div style="font-weight: 500; letter-spacing: 1px; font-size:15px;">Tap to open your sealed letter</div>
   </div>
 
-  <button style="margin-top:10px;" onclick="nextSlide()">PLAY A LITTLE GAME →</button>
+  <div class="letter-modal" id="letterModalBox">
+    <h3>Happy birthday, aşk ❤️</h3>
+    These are just a few of my favourite moments and memories with you, because they remind me of the best days we’ve shared.
+
+    Nothing extraordinary, just us enjoying each other’s company, with nowhere else we needed to be and nothing else we needed to do.
+
+    I think that’s what makes these memories so special to me. It wasn’t about doing anything extraordinary, but about how happy and peaceful everything felt just because I was with you.
+
+    I wish I could be right there with you today, making more memories like these. Until then, I hope these little photos and videos bring you back to those beautiful days whenever you look at them.
+
+    My favourite place will always be wherever I get to share these little moments with you.
+
+    I hope this new year of your life brings you as much happiness, warmth, and love as you bring into mine every single day. I can't wait until we can celebrate all your birthdays side by side.
+
+    <br><br><span style="color: #8c1d40; font-weight: 600;">I love you babe ❤️</span>
+  </div>
+
+  <button style="margin-top:20px;" onclick="nextSlide()">Play Mini Game</button>
 </div>
 
-<!-- SLAYT 7: OYUN -->
+<!-- SLAYT 7 -->
 <div class="slide" id="slide-6">
-  <div class="eyebrow">A LITTLE GAME</div>
+  <div class="eyebrow">Interactive</div>
   <h2>Do You Know Us?</h2>
   <div class="game">
-    <p id="question" style="font-size:16px;font-weight:bold;">What's my favourite place to be?</p>
+    <p id="question" style="font-size:16px;font-weight:400;margin-bottom:15px;">What's my favourite place to be?</p>
     <div id="answers">
       <button class="answer" onclick="answerGame(0)">Anywhere with you ❤️</button>
       <button class="answer" onclick="answerGame(1)">At the airport ✈️</button>
       <button class="answer" onclick="answerGame(2)">In a supermarket 🛒</button>
     </div>
     <p id="feedback"></p>
-    <button id="next-game" style="display:none" onclick="nextGameQuestion()">NEXT QUESTION →</button>
+    <button id="next-game" style="display:none" onclick="nextGameQuestion()">Next Question →</button>
   </div>
 </div>
 
-<!-- SLAYT 8: MUM SÖNDÜRME VE DOĞUM GÜNÜ KUTLAMASI -->
+<!-- SLAYT 8 (BÜYÜK EKRAN PASTA VE GERİ SAYIM) -->
 <div class="slide" id="slide-7">
-  <div class="eyebrow">THE FINAL SURPRISE</div>
+  <div class="eyebrow">Grand Finale</div>
   <h2>Make a Birthday Wish</h2>
   <div id="cake-container">🎂</div>
   <div id="countdown-display"></div>
   <p class="muted" id="wish-text">Close your eyes, make a wish, and tap below.</p>
-  <button id="wish-btn" onclick="startCountdown()">BLOW OUT THE CANDLES ✨</button>
-  <div id="ending" style="display:none;margin-top:10px;">
+  <button id="wish-btn" onclick="startCountdown()">Blow Out Candles ✨</button>
+  <div id="ending" style="display:none;margin-top:15px;">
     <h2>Happy Birthday, <em>my love.</em></h2>
-    <p class="muted">Here's to more memories, more laughter, more adventures, and a future with many more birthdays together.</p>
+    <p class="muted">Here's to a future filled with countless birthdays together.</p>
     <h2>♡ I LOVE YOU ♡</h2>
-    <div style="font-size:26px">🎉 💕 ✨ 🎈</div>
+    <div style="font-size:32px">🎉 💕 ✨ 🎈</div>
   </div>
 </div>
 
@@ -227,8 +243,8 @@ function openGift(){
   music.play().catch(e => console.log("Audio play prevented"));
   let overlay = document.getElementById('gift-overlay');
   overlay.style.opacity = '0';
-  overlay.style.transform = 'scale(1.1)';
-  setTimeout(() => overlay.remove(), 800);
+  overlay.style.transform = 'scale(1.08)';
+  setTimeout(() => overlay.remove(), 900);
 }
 
 function nextSlide(){
@@ -238,15 +254,15 @@ function nextSlide(){
   document.getElementById(`slide-${currentSlide}`).classList.add('active');
 }
 
-function unrollLetter(){
-  let paper = document.getElementById('paperScroll');
-  paper.classList.toggle('open');
+function openLetterModal(){
+  let modal = document.getElementById('letterModalBox');
+  modal.classList.toggle('open');
 }
 
-for(let i=0;i<70;i++){
+for(let i=0;i<60;i++){
   let s=document.createElement('span');
   s.textContent='♥';
-  s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;color:#ff4d6d;opacity:${Math.random()*0.6};font-size:${8+Math.random()*8}px`;
+  s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;color:#d4af37;opacity:${Math.random()*0.35};font-size:${8+Math.random()*6}px`;
   document.getElementById('stars').appendChild(s);
 }
 
@@ -289,7 +305,7 @@ function startCountdown(){
     } else {
       clearInterval(timer);
       display.textContent = "";
-      document.getElementById('cake-container').textContent = "🎂 (Mumlar Söndü! 💨)";
+      document.getElementById('cake-container').textContent = "🎂 (Candles Blown Out! 💨)";
       document.getElementById('ending').style.display = 'block';
       triggerConfetti();
     }
@@ -297,13 +313,13 @@ function startCountdown(){
 }
 
 function triggerConfetti(){
-  for(let i=0;i<60;i++){
+  for(let i=0;i<80;i++){
     let h=document.createElement('span');
-    h.textContent=['❤️','💖','✨','🎈','🎉'][Math.floor(Math.random()*5)];
-    h.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;font-size:${16+Math.random()*22}px;z-index:5;pointer-events:none;transition:transform 4s linear,opacity 4s linear`;
+    h.textContent=['❤️','✨','🎈','🎉','💖'][Math.floor(Math.random()*5)];
+    h.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;font-size:${18+Math.random()*24}px;z-index:5;pointer-events:none;transition:transform 4s linear,opacity 4s linear`;
     document.body.appendChild(h);
     setTimeout(()=>{
-      h.style.transform=`translateY(-110vh) translateX(${(Math.random()-0.5)*200}px) rotate(${Math.random()*360}deg)`;
+      h.style.transform=`translateY(-110vh) translateX(${(Math.random()-0.5)*250}px) rotate(${Math.random()*360}deg)`;
       h.style.opacity=0;
     },30);
     setTimeout(()=>h.remove(),4200);
