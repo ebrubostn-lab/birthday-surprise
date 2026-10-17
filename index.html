@@ -29,65 +29,66 @@ body{margin:0;background:#0b1025;color:#fff4e9;font-family:Georgia,serif;text-al
 /* SLAYT SİSTEMİ */
 .slide{
   position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;
-  padding:30px;opacity:0;transition:opacity 0.6s ease;overflow-y:auto;background:radial-gradient(ellipse,#30365e,#0b1025 70%);
+  padding:20px;opacity:0;transition:opacity 0.6s ease;overflow-y:auto;background:radial-gradient(ellipse,#30365e,#0b1025 70%);
 }
 .slide.active{display:flex;opacity:1}
 
-.eyebrow{color:#e9cc94;letter-spacing:4px;font:11px Arial,sans-serif;margin-bottom:10px}
-h1{font-size:clamp(36px,7vw,70px);font-weight:normal;line-height:1.15;margin:10px 0}
-h2{font-size:clamp(28px,4vw,42px);font-weight:normal;margin:10px 0}
-em{color:#f0aabd}
-p{line-height:1.8;max-width:750px;margin:10px auto}
-.muted{color:#c6c6d8;font:14px/1.8 Arial,sans-serif}
+.eyebrow{color:#e9cc94;letter-spacing:4px;font:11px Arial,sans-serif;margin-bottom:8px}
+h1{font-size:clamp(32px,6vw,60px);font-weight:normal;line-height:1.15;margin:8px 0}
+h2{font-size:clamp(24px,4vw,36px);font-weight:normal;margin:8px 0}
+em{color:#ff4d6d}
+p{line-height:1.6;max-width:700px;margin:8px auto;font-size:14px}
+.muted{color:#c6c6d8;font:13px/1.6 Arial,sans-serif}
 
-button{padding:14px 28px;border:1px solid #e9cc94;border-radius:30px;background:#e9cc94;color:#17152b;cursor:pointer;font-weight:bold;margin:15px;font-size:15px}
+button{padding:12px 24px;border:1px solid #e9cc94;border-radius:30px;background:#e9cc94;color:#17152b;cursor:pointer;font-weight:bold;margin:10px;font-size:14px}
 button:hover{transform:scale(1.04)}
 
-/* FOTOĞRAF VE VİDEO */
-.photo-slide-container{max-width:450px;width:100%;margin:15px auto;border-radius:16px;overflow:hidden;border:2px solid #e9cc94;background:#343755;box-shadow:0 4px 20px rgba(233,204,148,0.2)}
-.photo-slide-container img{width:100%;height:320px;object-fit:cover;display:block}
+/* FOTOĞRAF VE VİDEO (KIRPILMADAN TAM GÖRÜNÜM) */
+.photo-slide-container{max-width:420px;width:100%;margin:10px auto;border-radius:14px;overflow:hidden;border:2px solid #e9cc94;background:#343755;box-shadow:0 4px 20px rgba(233,204,148,0.2)}
+.photo-slide-container img{width:100%;height:auto;max-height:300px;object-fit:contain;display:block;margin:auto;background:#000}
 
-.video-container{margin:15px auto;max-width:650px;width:100%;border-radius:16px;overflow:hidden;border:2px solid #e9cc94;background:#1a1a1a;box-shadow:0 4px 15px rgba(233,204,148,0.2)}
-video{width:100%;display:block}
+.video-container{margin:10px auto;max-width:550px;width:100%;border-radius:14px;overflow:hidden;border:2px solid #e9cc94;background:#1a1a1a;box-shadow:0 4px 15px rgba(233,204,148,0.2)}
+video{width:100%;height:auto;max-height:280px;object-fit:contain;display:block;margin:auto}
 
-/* ANTİK RULO / PARŞÖMEN MEKTUP EFEKTİ */
-.scroll-container {
-  max-width: 650px; width: 100%; margin: 15px auto; text-align: left;
-}
+/* ANTİK RULO MEKTUP (EL YAZISI VE ÖZEL RENK) */
+.scroll-container { max-width: 600px; width: 100%; margin: 10px auto; text-align: left; }
 .scroll-seal {
-  background: linear-gradient(135deg, #d4af37, #aa771c); color: #fff; padding: 22px; border-radius: 12px;
-  cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.4); text-align: center; font-weight: bold; font-size: 17px;
+  background: linear-gradient(135deg, #d4af37, #aa771c); color: #fff; padding: 18px; border-radius: 12px;
+  cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.4); text-align: center; font-weight: bold; font-size: 16px;
   border: 2px dashed #ffe699; transition: transform 0.3s;
 }
 .scroll-seal:hover { transform: scale(1.02); }
 
 .scroll-paper {
-  background: #f4e8c1; color: #3b2f2f; padding: 0 35px; border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6); line-height: 1.9; white-space: pre-line;
+  background: #f4e8c1; color: #2e2218; padding: 0 30px; border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6); line-height: 1.8; white-space: pre-line;
   max-height: 0; overflow: hidden; transition: max-height 1.2s cubic-bezier(0.25, 1, 0.5, 1), padding 1.2s ease;
-  border: 4px solid #d4af37; font-family: 'Georgia', serif; position: relative;
+  border: 4px solid #d4af37; font-family: 'Brush Script MT', 'Lucida Handwriting', cursive; position: relative; font-size: 18px; font-weight: bold;
 }
-.scroll-paper.open {
-  max-height: 900px; padding: 35px; overflow-y: auto;
-}
-.scroll-paper h3 { margin-top: 0; color: #5c4033; font-size: 26px; }
+.scroll-paper.open { max-height: 750px; padding: 25px; overflow-y: auto; }
+.scroll-paper h3 { margin-top: 0; color: #5c4033; font-size: 26px; font-family: Georgia, serif; }
+.scroll-paper .normal-text { color: #2e2218; }
 
-.game{padding:20px;border:1px solid #ffffff30;border-radius:16px;max-width:600px;margin:15px auto;background:#ffffff08}
-.answer{background:transparent;color:white;border-color:#e9cc94;display:block;width:100%;max-width:400px;margin:8px auto}
-#feedback{color:#f0aabd;min-height:25px;font-weight:bold}
+.game{padding:15px;border:1px solid #ffffff30;border-radius:16px;max-width:550px;margin:10px auto;background:#ffffff08}
+.answer{background:transparent;color:white;border-color:#e9cc94;display:block;width:100%;max-width:350px;margin:6px auto}
+#feedback{color:#ff4d6d;min-height:22px;font-weight:bold;font-size:14px}
+
+/* GERİ SAYIM VE MUM ANİMASYONU */
+#countdown-display { font-size: 60px; font-weight: bold; color: #ff4d6d; margin: 15px 0; min-height: 70px; text-shadow: 0 0 15px rgba(255,77,109,0.6); }
+#cake-container { font-size: 70px; transition: transform 0.3s; }
 #stars{position:fixed;inset:0;pointer-events:none;z-index:-1}
 </style>
 </head>
 <body>
 
 <div id="gift-overlay">
-  <div style="font-size:18px;color:#e9cc94;letter-spacing:4px;margin-bottom:30px;font-weight:bold;">A SPECIAL SURPRISE FOR YOU ♡</div>
+  <div style="font-size:18px;color:#e9cc94;letter-spacing:4px;margin-bottom:25px;font-weight:bold;">A SPECIAL SURPRISE FOR YOU ♡</div>
   <div class="gift-card-box" onclick="openGift()">
     <div class="ribbon-vertical"></div>
     <div class="ribbon-horizontal"></div>
     <div class="bow">🎁</div>
   </div>
-  <p class="muted" style="margin-top:35px;font-size:15px;color:#f0aabd;">Tap the gift box to unwrap your surprise ✨</p>
+  <p class="muted" style="margin-top:30px;font-size:14px;color:#ff4d6d;">Tap the gift box to unwrap your surprise ✨</p>
 </div>
 
 <!-- ARKAPLAN MÜZİĞİ (PHIL COLLINS) -->
@@ -99,7 +100,7 @@ video{width:100%;display:block}
 
 <!-- SLAYT 1: GİRİŞ -->
 <div class="slide active" id="slide-0">
-  <div style="font-size:42px">☾ ✦</div>
+  <div style="font-size:38px">☾ ✦</div>
   <div class="eyebrow">A BIRTHDAY SURPRISE MADE WITH LOVE</div>
   <h1>For my favourite<br><em>person in the world.</em></h1>
   <p class="muted">I made a little world on the internet.<br>And this little world belongs only to us.</p>
@@ -139,13 +140,13 @@ video{width:100%;display:block}
   <button onclick="nextSlide()">WATCH VIDEO →</button>
 </div>
 
-<!-- SLAYT 5: VİDEO (SESSİZ) -->
+<!-- SLAYT 5: VİDEO (OTOMATİK OYNAR VE SESSİZ) -->
 <div class="slide" id="slide-4">
   <div class="eyebrow">A SPECIAL MOMENT</div>
   <h2>A Little Video For You</h2>
-  <p class="muted">Press play and smile. 🎬</p>
+  <p class="muted">Just watch and smile. 🎬</p>
   <div class="video-container">
-    <video controls muted>
+    <video autoplay muted loop playsinline>
       <source src="video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -157,7 +158,7 @@ video{width:100%;display:block}
 <div class="slide" id="slide-5">
   <div class="eyebrow">CHAPTER TWO</div>
   <h2>A Royal Scroll For You</h2>
-  <p class="muted" style="margin-bottom:10px;">Click the royal scroll below to unroll your letter ♡</p>
+  <p class="muted" style="margin-bottom:8px;">Click the royal scroll below to unroll your letter ♡</p>
   
   <div class="scroll-container">
     <div class="scroll-seal" onclick="unrollLetter()">
@@ -177,11 +178,11 @@ video{width:100%;display:block}
 
       I hope this new year of your life brings you as much happiness, warmth, and love as you bring into mine every single day. I can't wait until we can celebrate all your birthdays side by side.
 
-      <br><br><em>I love you babe ❤️</em>
+      <br><br><span style="color: #5c4033; font-weight: bold;">I love you babe ❤️</span>
     </div>
   </div>
 
-  <button style="margin-top:15px;" onclick="nextSlide()">PLAY A LITTLE GAME →</button>
+  <button style="margin-top:10px;" onclick="nextSlide()">PLAY A LITTLE GAME →</button>
 </div>
 
 <!-- SLAYT 7: OYUN -->
@@ -189,7 +190,7 @@ video{width:100%;display:block}
   <div class="eyebrow">A LITTLE GAME</div>
   <h2>Do You Know Us?</h2>
   <div class="game">
-    <p id="question" style="font-size:17px;font-weight:bold;">What's my favourite place to be?</p>
+    <p id="question" style="font-size:16px;font-weight:bold;">What's my favourite place to be?</p>
     <div id="answers">
       <button class="answer" onclick="answerGame(0)">Anywhere with you ❤️</button>
       <button class="answer" onclick="answerGame(1)">At the airport ✈️</button>
@@ -200,18 +201,19 @@ video{width:100%;display:block}
   </div>
 </div>
 
-<!-- SLAYT 8: SONUÇ / DOĞUM GÜNÜ KUTLAMASI -->
+<!-- SLAYT 8: MUM SÖNDÜRME VE DOĞUM GÜNÜ KUTLAMASI -->
 <div class="slide" id="slide-7">
   <div class="eyebrow">THE FINAL SURPRISE</div>
   <h2>Make a Birthday Wish</h2>
-  <div style="font-size:70px">🎂</div>
-  <p class="muted">Close your eyes, make a wish, and tap below.</p>
-  <button onclick="celebrate()">BLOW OUT THE CANDLES ✨</button>
-  <div id="ending" style="display:none;margin-top:15px;">
+  <div id="cake-container">🎂</div>
+  <div id="countdown-display"></div>
+  <p class="muted" id="wish-text">Close your eyes, make a wish, and tap below.</p>
+  <button id="wish-btn" onclick="startCountdown()">BLOW OUT THE CANDLES ✨</button>
+  <div id="ending" style="display:none;margin-top:10px;">
     <h2>Happy Birthday, <em>my love.</em></h2>
     <p class="muted">Here's to more memories, more laughter, more adventures, and a future with many more birthdays together.</p>
     <h2>♡ I LOVE YOU ♡</h2>
-    <div style="font-size:30px">🎉 💕 ✨ 🎈</div>
+    <div style="font-size:26px">🎉 💕 ✨ 🎈</div>
   </div>
 </div>
 
@@ -221,6 +223,7 @@ const totalSlides = 8;
 
 function openGift(){
   let music = document.getElementById('bg-music');
+  music.volume = 0.8;
   music.play().catch(e => console.log("Audio play prevented"));
   let overlay = document.getElementById('gift-overlay');
   overlay.style.opacity = '0';
@@ -242,8 +245,8 @@ function unrollLetter(){
 
 for(let i=0;i<70;i++){
   let s=document.createElement('span');
-  s.textContent='✦';
-  s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;color:#e9cc94;opacity:${Math.random()*.8};font-size:${8+Math.random()*10}px`;
+  s.textContent='♥';
+  s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;color:#ff4d6d;opacity:${Math.random()*0.6};font-size:${8+Math.random()*8}px`;
   document.getElementById('stars').appendChild(s);
 }
 
@@ -270,15 +273,41 @@ function nextGameQuestion(){
  document.getElementById('next-game').style.display='none';
 }
 
-function celebrate(){
- document.getElementById('ending').style.display='block';
- for(let i=0;i<45;i++){
-  let h=document.createElement('span');h.textContent=['♡','♥','✦','💕'][Math.floor(Math.random()*4)];
-  h.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;color:#f0aabd;font-size:${15+Math.random()*20}px;z-index:5;pointer-events:none;transition:transform 4s linear,opacity 4s linear`;
-  document.body.appendChild(h);
-  setTimeout(()=>{h.style.transform=`translateY(-110vh) rotate(40deg)`;h.style.opacity=0},30);
-  setTimeout(()=>h.remove(),4200);
- }
+function startCountdown(){
+  document.getElementById('wish-btn').style.display = 'none';
+  document.getElementById('wish-text').style.display = 'none';
+  let counter = 3;
+  let display = document.getElementById('countdown-display');
+  display.textContent = counter;
+
+  let timer = setInterval(() => {
+    counter--;
+    if(counter > 0){
+      display.textContent = counter;
+    } else if(counter === 0){
+      display.textContent = "1 ✨";
+    } else {
+      clearInterval(timer);
+      display.textContent = "";
+      document.getElementById('cake-container').textContent = "🎂 (Mumlar Söndü! 💨)";
+      document.getElementById('ending').style.display = 'block';
+      triggerConfetti();
+    }
+  }, 1000);
+}
+
+function triggerConfetti(){
+  for(let i=0;i<60;i++){
+    let h=document.createElement('span');
+    h.textContent=['❤️','💖','✨','🎈','🎉'][Math.floor(Math.random()*5)];
+    h.style.cssText=`position:fixed;left:${Math.random()*100}vw;bottom:-20px;font-size:${16+Math.random()*22}px;z-index:5;pointer-events:none;transition:transform 4s linear,opacity 4s linear`;
+    document.body.appendChild(h);
+    setTimeout(()=>{
+      h.style.transform=`translateY(-110vh) translateX(${(Math.random()-0.5)*200}px) rotate(${Math.random()*360}deg)`;
+      h.style.opacity=0;
+    },30);
+    setTimeout(()=>h.remove(),4200);
+  }
 }
 </script>
 </body>
