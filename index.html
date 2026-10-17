@@ -6,7 +6,38 @@
 <title>A Little World Just for You ♡</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b1025;color:#fff4e9;font-family:Georgia,serif;text-align:center}
+body{margin:0;background:#0b1025;color:#fff4e9;font-family:Georgia,serif;text-align:center;overflow-x:hidden}
+
+/* CANLI VE TATLI RENKLİ KURDELELİ HEDİYE PAKETİ OVERLAY */
+#gift-overlay{
+  position:fixed;inset:0;background:radial-gradient(circle,#1a1a3a,#0b1025 80%);
+  z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.gift-card-box{
+  background:linear-gradient(135deg, #ff4d6d, #d90429);
+  width: 150px; height: 150px; border-radius: 20px; position: relative;
+  cursor: pointer; box-shadow: 0 15px 35px rgba(255, 77, 109, 0.4);
+  animation: pulseBox 2s infinite ease-in-out;
+  display: flex; align-items: center; justify-content: center;
+}
+/* Mavi ve Kırmızı Kurdele Detayları */
+.ribbon-vertical {
+  position: absolute; width: 30px; height: 100%; background: #0077b6;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.ribbon-horizontal {
+  position: absolute; width: 100%; height: 30px; background: #0077b6;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.bow {
+  position: absolute; top: -35px; font-size: 50px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+@keyframes pulseBox {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:25px;background:radial-gradient(ellipse,#30365e,#0b1025 70%)}
 .eyebrow{color:#e9cc94;letter-spacing:4px;font:11px Arial,sans-serif}
 h1{font-size:clamp(42px,8vw,82px);font-weight:normal;line-height:1.12}
@@ -21,6 +52,8 @@ h2{font-size:clamp(32px,5vw,48px);font-weight:normal}
 .card{border:1px solid #ffffff25;background:#ffffff09;border-radius:16px;overflow:hidden}
 .photo{height:250px;background:#343755;display:flex;align-items:center;justify-content:center;color:#ddd;font:13px Arial,sans-serif;background-size:cover;background-position:center}
 .card p{padding:0 16px 16px}
+.video-container{margin:30px auto;max-width:700px;border-radius:16px;overflow:hidden;border:2px solid #e9cc94;background:#1a1a1a;box-shadow:0 4px 15px rgba(233,204,148,0.2)}
+video{width:100%;display:block}
 .letter{background:#f8efdf;color:#29243b;padding:30px;border-radius:8px;text-align:left;line-height:1.9;white-space:pre-line}
 .letter h3{font-size:27px;font-weight:normal}
 .game{padding:25px;border:1px solid #ffffff30;border-radius:16px}
@@ -32,6 +65,25 @@ footer{padding:30px;color:#aaa;font:11px Arial,sans-serif;letter-spacing:2px}
 </style>
 </head>
 <body>
+
+<!-- CANLI MAVİ & KIRMIZI KURDELELİ HEDİYE PAKETİ AÇILIŞ EKRANI -->
+<div id="gift-overlay">
+  <div style="font-size:18px;color:#e9cc94;letter-spacing:4px;margin-bottom:30px;font-weight:bold;">A SPECIAL SURPRISE FOR YOU ♡</div>
+  
+  <div class="gift-card-box" onclick="openGift()">
+    <div class="ribbon-vertical"></div>
+    <div class="ribbon-horizontal"></div>
+    <div class="bow">🎁</div>
+  </div>
+  
+  <p class="muted" style="margin-top:35px;font-size:15px;color:#f0aabd;">Tap the gift box to unwrap your surprise ✨</p>
+</div>
+
+<!-- ARKA PLAN MELODİSİ -->
+<audio id="bg-music" loop>
+  <source src="https://cdnsongs.com/music/data/English/2021/Another_Day_In_Paradise_-_Phil_Collins/128/1.mp3" type="audio/mpeg">
+</audio>
+
 <div id="stars"></div>
 
 <header class="hero">
@@ -65,6 +117,18 @@ footer{padding:30px;color:#aaa;font:11px Arial,sans-serif;letter-spacing:2px}
       <div class="photo" style="background-image:url('photo3.jpg')">Add your photo: photo3.jpg</div>
       <h3>Just Us ♡</h3>
       <p class="muted">The laughter, the little moments, and all the things I miss.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 50px;">
+    <div class="eyebrow">A SPECIAL MOMENT</div>
+    <h2>A Little Video For You</h2>
+    <p class="muted">Press play and smile. 🎬</p>
+    <div class="video-container">
+      <video controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </section>
@@ -122,6 +186,15 @@ One day, I hope we won't have to celebrate through a screen. Until then, please 
 <footer>MADE WITH LOVE, JUST FOR YOU ♡</footer>
 
 <script>
+function openGift(){
+  let music = document.getElementById('bg-music');
+  music.play().catch(e => console.log("Audio play prevented"));
+  let overlay = document.getElementById('gift-overlay');
+  overlay.style.opacity = '0';
+  overlay.style.transform = 'scale(1.1)';
+  setTimeout(() => overlay.remove(), 800);
+}
+
 for(let i=0;i<70;i++){
   let s=document.createElement('span');
   s.textContent='✦';
