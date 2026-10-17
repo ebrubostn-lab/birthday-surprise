@@ -108,7 +108,7 @@ video{width:100%;height:auto;max-height:420px;object-fit:cover;display:block;mar
   <p class="muted" style="margin-top:35px;font-size:13px;letter-spacing:1px;color:#e63946;">TAP THE GIFT BOX TO UNWRAP ✨</p>
 </div>
 
-<audio id="bg-music" loop>
+<audio id="bg-music" loop preload="auto">
   <source src="https://cdnsongs.com/music/data/English/2021/Another_Day_In_Paradise_-_Phil_Collins/128/1.mp3" type="audio/mpeg">
 </audio>
 
@@ -239,8 +239,16 @@ const totalSlides = 8;
 
 function openGift(){
   let music = document.getElementById('bg-music');
-  music.volume = 0.8;
-  music.play().catch(e => console.log("Audio play prevented"));
+  music.volume = 0.9;
+  music.play().then(() => {
+    console.log("Music playing successfully");
+  }).catch(e => {
+    console.log("Audio play blocked, enabling on next touch");
+    document.body.addEventListener('click', () => {
+      music.play();
+    }, { once: true });
+  });
+
   let overlay = document.getElementById('gift-overlay');
   overlay.style.opacity = '0';
   overlay.style.transform = 'scale(1.08)';
